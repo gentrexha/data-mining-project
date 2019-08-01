@@ -1,0 +1,5 @@
+"name","type"
+"id","INT"
+"name","VARCHAR(47)"
+"fan_count","INT"
+"dateInsert","VARCHAR(19)"

@@ -1,0 +1,8 @@
+"name","type"
+"postiid","VARCHAR(33)"
+"partianame","VARCHAR(37)"
+"kohapostimit","VARCHAR(19)"
+"nrlike","INT"
+"nrReaction","INT"
+"nrkomenteve","INT"
+"nrshare","INT"
