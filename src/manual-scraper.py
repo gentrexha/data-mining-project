@@ -2,6 +2,8 @@ import argparse
 import time
 import json
 import re
+import pandas as pd
+import numpy as np
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -220,7 +222,8 @@ if __name__ == "__main__":
                                  default=0)
     optional_parser.add_argument('-usage', '-u', help="What to do with the data: "
                                                       "Print on Screen (PS), "
-                                                      "Write to Text File (WT) (Default is WT)", default="WT")
+                                                      "Write to Text File (WT), "
+                                                      "Write to DataFrame (Default is DF)", default="DF")
 
     optional_parser.add_argument('-comments', '-c', help="Scrape ALL Comments of Posts (y/n) (Default is n). When "
                                                          "enabled for pages where there are a lot of comments it can "
@@ -241,9 +244,28 @@ if __name__ == "__main__":
         with open('output.txt', 'w') as file:
             for post in postBigDict:
                 file.write(json.dumps(post))  # use json load to recover
-    else:
+    elif args.usage == "PS":
         for post in postBigDict:
             print(post)
             print("\n")
+    else:
+        # Variables for the Dataframe
+        date = []
+        likes = []
+        comments = []
+        shares = []
+
+        for post in postBigDict:
+            date.append(post['Time'])
+            likes.append(post['Reaction']['LIKE'])
+            comments.append(post['Comments'])
+            shares.append(post['Shares'])
+
+        # creating a dataframe
+        posts = pd.DataFrame(np.column_stack([date, likes, comments, shares]),
+                             columns=["Date", "Likes", "Comments", "Shares"])
+
+        # creating a .csv containing the data
+        posts.to_csv('../data/raw/{}.csv'.format(args.page), index=False)
 
     print("Finished")

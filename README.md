@@ -4,6 +4,21 @@ A short description of the project. Old project: https://bitbucket.org/gentrexha
 
 ## Getting started
 
+## Scraping
+
+Currently there's two different methods for scraping data from Facebook pages.
+
+### manual-scraper.py
+
+Note: uses selenium, but I've changed the script to work for our use-case.
+
+https://github.com/brutalsavage/facebook-post-scraper
+
+### scraper.py
+
+Note: Doesn't support shares as of now.
+
+https://github.com/kevinzg/facebook-scraper
 
 ## Research
 
