@@ -57,6 +57,15 @@ ggplot(df, aes(x = Date, y = Posts)) +
 ggsave("src/visualization/daily-posts.png")
 
 # TODO(Compare total page likes between candidates!)
+df.page <- read.csv("src/visualization/page-likes.csv", stringsAsFactors=FALSE)
+
+ggplot(df.page, aes(fill=Name, y=Likes, x=Name)) + 
+  geom_bar(stat="identity") +
+  theme_minimal() + 
+  scale_fill_manual(values = df.page$Color, limits = df.page$Name) +
+  labs(title = "Total Page Likes")
+
+ggsave("src/visualization/page-likes.png")
 
 # Experimenting with grouped bar charts
 
