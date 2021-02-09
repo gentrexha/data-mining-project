@@ -1,6 +1,8 @@
-# data-mining-project
+# KushMaAktiv
 
-A short description of the project. Old project: https://bitbucket.org/gentrexha/dataminingproject/src/master/
+A full-stack web application for scraping, analyzing, and visualizing political data from Facebook. 
+
+This new project is based on the old project: https://bitbucket.org/gentrexha/dataminingproject/src/master/
 
 ## Getting started
 
